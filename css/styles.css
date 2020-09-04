@@ -14,7 +14,7 @@
     /* Fonts and Typography */
     --ff-primary: 'Poppins', sans-serif;
 
-    --fs-h1: 2.5rem;
+    --fs-h1: 1.6rem;
     --fs-h2: 1.5rem;
     --fs-h3: 1.25rem;
     --fs-normal: .938rem;
@@ -25,14 +25,14 @@
     --fw-semibold: 600;
 
     /* Box Shadow */
-    --bxs-card: 0.25em 0.25em 0.75em rgba(0,0,0,.25),
-                0.125em 0.125em 0.25em rgba(0,0,0,.15);
+    --bxs-card: 2.5px 10px 40px -22px rgba(0,0,0,0.62);
+    
     /* Others */
 }
 /* Desktop  */
 @media screen and (min-width: 768px){
     :root{
-        --fs-h1: 3rem;
+        --fs-h1: 2.5rem;
         --fs-h2: 2rem;
         --fs-h3: 1.5rem;
         --fs-normal: 1rem;
@@ -53,7 +53,7 @@ body{
 
     font-family: var(--ff-primary);
     font-size: var(--fs-normal);
-    font-weight: var(--fw-light);
+    font-weight: var(--fw-reg);
 
     min-height: 100vh;
 }
@@ -62,12 +62,107 @@ img{
     max-width: 100%;
 }
 /* Typography */
-h1{font-size: var(--fs-h1);}
+h1{
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-light);
+}
 h2{font-size: var(--fs-h2);}
 h3{font-size: var(--fs-h3);}
+
+h1,
+h2,
+h3{
+    color: var(--clr-darkblue);
+}
 /* Layout */
 .wrapper{
     max-width: 1200px;
     margin: 0 auto;
 }
 /* ---- Section Styles ---- */
+.section{
+    padding: 4rem 2rem 1rem;
+}
+.section__title{
+    margin-bottom: 1.5rem;
+}
+/* Features Section */
+.features{
+    text-align: center;
+}
+.section__title--features {
+    line-height: 1.3;
+}
+.section__title--features span{
+    display: block;
+    font-weight: var(--fw-semibold);
+}
+.section__subtitle--features{
+    max-width: 550px;
+    margin: 0 auto;
+}
+.section__body{
+    margin-top: 4rem;
+}
+.feature{
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    border-top: 4px solid var(--clr-cyan);
+    max-width: 325px;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem 2rem;
+    border-radius: 5px;
+
+    text-align: left;
+    font-size: var(--fs-small);
+    box-shadow: var(--bxs-card);
+}
+.feature:nth-child(2){border-top-color: var(--clr-red);}
+.feature:nth-child(3){border-top-color: var(--clr-orange);}
+.feature:nth-child(4){border-top-color: var(--clr-blue);}
+.feature__title{
+    margin-bottom: .5rem;
+}
+.feature__description{
+    margin-bottom: 2rem;
+}
+.feature__img{
+    margin-left: auto;
+}
+
+/* Footer */
+footer{
+    padding: 3rem;
+}
+
+/* Media Queries */
+@media screen and (min-width: 850px){
+    .section__body--features{
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-areas: "sup tb calc"
+                             ". kar .";
+    }
+    .feature{
+        margin-bottom: initial;
+    }
+    .feature--supervisor{
+        grid-area: sup;
+    }
+    .feature--team{
+        grid-area: tb;
+    }
+    .feature--karma{
+        grid-area: kar;
+    }
+    .feature--calculator{
+        grid-area: calc;
+    }
+    .feature--supervisor,
+    .feature--calculator{
+        grid-row: 1/-1;
+        align-self: center;
+    }
+}
